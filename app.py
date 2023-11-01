@@ -17,7 +17,22 @@ input_text = st.text_area("Masukkan teks:")
 
 # Membuat tiga kolom dengan CSS untuk mengatur tampilan tombol-tombol
 col1, col2, col3, col4 = st.columns(4)
-
+col1.markdown(
+    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
+    unsafe_allow_html=True,
+)
+col2.markdown(
+    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
+    unsafe_allow_html=True,
+)
+col3.markdown(
+    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
+    unsafe_allow_html=True,
+)
+col4.markdown(
+    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
+    unsafe_allow_html=True,
+)
 
 # Tombol "Submit"
 if col1.button("Submit"):
