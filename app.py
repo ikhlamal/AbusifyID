@@ -39,11 +39,9 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        
-        # Membuat baris dengan tata letak horizontal
-        with st.row():
-            st.write("Abusiveness Level:")
-            st.info(prediction)
+        st.write("Abusiveness Level:", prediction, unsafe_allow_html=True)
+        st.info("")
+
             
         st.write("Abusive Words Detected:", detection)
         st.write("Abusive Words Filtered:", filtered_text)
