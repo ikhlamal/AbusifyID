@@ -1,49 +1,30 @@
 import streamlit as st
 import abusify_id as ai
 
-# Fungsi untuk mengakses tiga fungsi abusify-id
-def process_text(text):
-    prediction = ai.predict_abusiveness(text)
-    detection = ai.abusiveword_detector(text)
-    filtered_text = ai.abusiveword_filter(text)
-
-    return prediction, detection, filtered_text
-
-# Aplikasi Streamlit
 st.title("Abusify Streamlit App")
 
-# Input teks
 input_text = st.text_area("Masukkan teks:")
 
-# Membuat tiga kolom dengan CSS untuk mengatur tampilan tombol-tombol
-col1, col2, col3 = st.columns(3)
-col1.markdown(
-    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
-    unsafe_allow_html=True,
-)
-
-# Tombol "Predict"
-if col1.button("Predict"):
+if st.button("Submit"):
     if input_text:
-        prediction, _, _ = process_text(input_text)
-        st.write("Prediksi Tingkat Abusiveness:", prediction)
-
-# Tombol "Detect"
-if col2.button("Detect"):
-    if input_text:
-        _, detection, _ = process_text(input_text)
-        st.write("Deteksi Kata Kasar:", detection)
-
-# Tombol "Filter"
-if col3.button("Filter"):
-    if input_text:
-        _, _, filtered_text = process_text(input_text)
-        st.write("Teks Setelah Difilter:", filtered_text)
-
-# Tombol "Submit"
-if input_text:
-    if st.button("Submit"):
         prediction, detection, filtered_text = process_text(input_text)
         st.write("Prediksi Tingkat Abusiveness:", prediction)
         st.write("Deteksi Kata Kasar:", detection)
+        st.write("Teks Setelah Difilter:", filtered_text)
+
+col1, col2, col3, col4 = st.columns(4)
+
+if col1.button("Predict"):
+    if input_text:
+        prediction = ai.predict_abusiveness(input_text)
+        st.write("Prediksi Tingkat Abusiveness:", prediction)
+
+if col2.button("Detect"):
+    if input_text:
+        detection = ai.abusiveword_detector(input_text)
+        st.write("Deteksi Kata Kasar:", detection)
+
+if col3.button("Filter"):
+    if input_text:
+        filtered_text = ai.abusiveword_filter(input_text)
         st.write("Teks Setelah Difilter:", filtered_text)
