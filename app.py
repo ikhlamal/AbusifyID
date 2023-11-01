@@ -38,9 +38,9 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        st.text("Prediksi Tingkat Abusiveness:", prediction)
-        st.text("Deteksi Kata Kasar:", detection)
-        st.text("Teks Setelah Difilter:", filtered_text)
+        st.write("Prediksi Tingkat Abusiveness:", prediction)
+        st.write("Deteksi Kata Kasar:", detection)
+        st.write("Teks Setelah Difilter:", filtered_text)
 
 # Tombol "Predict"
 if col2.button("Predict"):
