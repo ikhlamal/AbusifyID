@@ -16,7 +16,7 @@ st.title("Abusify Streamlit App")
 input_text = st.text_area("Masukkan teks:")
 
 # Membuat kolom dengan layout horizontal
-col1, col2, col3, col4 = st.beta_columns(4)
+col1, col2, col3, col4 = st.columns(4)
 
 # Tombol "Predict"
 if col1.button("Predict"):
