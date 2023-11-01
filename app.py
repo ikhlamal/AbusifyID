@@ -39,9 +39,9 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        st.info("Abusiveness Level:", prediction)
-        st.info("Abusive Words Detected:", detection)
-        st.info("Abusive Words Filtered:", filtered_text)
+        st.text("Abusiveness Level:", prediction)
+        st.text("Abusive Words Detected:", detection)
+        st.text("Abusive Words Filtered:", filtered_text)
 
 # Tombol "Predict"
 if col2.button("Predict"):
