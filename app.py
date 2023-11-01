@@ -14,7 +14,7 @@ st.title("AbusifyID")
 st.write("Abusiveness Verification in Bahasa Indonesia.")
 
 # Input teks
-input_text = st.text_area("", placeholder="Input text here")
+input_text = st.text_area("Input some text than choose any methods below", placeholder="Input text here")
 
 # Membuat tiga kolom dengan CSS untuk mengatur tampilan tombol-tombol
 col1, col2, col3, col4 = st.columns(4)
