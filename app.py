@@ -39,13 +39,12 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        st.write("Abusiveness Level:", prediction, unsafe_allow_html=True)
-        st.info("")
-
-            
+        # Membagi kolom untuk "Abusiveness Level:"
+        col_left, col_right = st.columns(2)
+        col_left.write("Abusiveness Level:")
+        col_right.info(prediction)
         st.write("Abusive Words Detected:", detection)
         st.write("Abusive Words Filtered:", filtered_text)
-
 
 # Tombol "Predict"
 if col2.button("Predict"):
