@@ -40,6 +40,7 @@ if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
         st.write("Abusiveness Level:", prediction)
+        st.info(prediction)
         st.write("Abusive Words Detected:", detection)
         st.write("Abusive Words Filtered:", filtered_text)
 
