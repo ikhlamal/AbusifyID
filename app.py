@@ -15,8 +15,20 @@ st.title("Abusify Streamlit App")
 # Input teks
 input_text = st.text_area("Masukkan teks:")
 
-# Membuat empat kolom sejajar untuk tombol-tombol
+# Membuat tiga kolom dengan CSS untuk mengatur tampilan tombol-tombol
 col1, col2, col3, col4 = st.columns(4)
+col1.markdown(
+    f'<style>div.stButton > button {{width: 100%; text-align: center;}}</style>',
+    unsafe_allow_html=True,
+)
+
+# Tombol "Submit"
+if col1.button("Submit"):
+    if input_text:
+        prediction, detection, filtered_text = process_text(input_text)
+        st.write("Prediksi Tingkat Abusiveness:", prediction)
+        st.write("Deteksi Kata Kasar:", detection)
+        st.write("Teks Setelah Difilter:", filtered_text)
 
 # Tombol "Predict"
 if col2.button("Predict"):
@@ -34,12 +46,4 @@ if col3.button("Detect"):
 if col4.button("Filter"):
     if input_text:
         _, _, filtered_text = process_text(input_text)
-        st.write("Teks Setelah Difilter:", filtered_text)
-
-# Tombol "Submit"
-if input_text:
-    if col1.button("Submit"):
-        prediction, detection, filtered_text = process_text(input_text)
-        st.write("Prediksi Tingkat Abusiveness:", prediction)
-        st.write("Deteksi Kata Kasar:", detection)
         st.write("Teks Setelah Difilter:", filtered_text)
