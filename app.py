@@ -39,7 +39,7 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        st.write("Abusiveness Level:"), st.info(prediction)
+        st.write("Abusiveness Level:", predection)
         st.write("Abusive Words Detected:", detection)
         st.write("Abusive Words Filtered:", filtered_text)
 
@@ -47,16 +47,16 @@ if col1.button("Submit"):
 if col2.button("Predict"):
     if input_text:
         prediction, _, _ = process_text(input_text)
-        st.write("Prediksi Tingkat Abusiveness:", prediction)
+        st.write("Abusiveness Level:", prediction)
 
 # Tombol "Detect"
 if col3.button("Detect"):
     if input_text:
         _, detection, _ = process_text(input_text)
-        st.write("Deteksi Kata Kasar:", detection)
+        st.write("Abusive Words Detected:", detection)
 
 # Tombol "Filter"
 if col4.button("Filter"):
     if input_text:
         _, _, filtered_text = process_text(input_text)
-        st.write("Teks Setelah Difilter:", filtered_text)
+        st.write("Abusive Words Filtered:", filtered_text)
