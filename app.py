@@ -15,23 +15,23 @@ st.title("Abusify Streamlit App")
 # Input teks
 input_text = st.text_area("Masukkan teks:")
 
-# Membuat tiga kolom untuk menampilkan tombol secara horizontal
-col1, col2, col3, col4 = st.columns(4)
+# Membuat satu kolom untuk menampilkan tombol secara horizontal
+col1 = st.columns(1)
 
 # Tombol "Predict"
-if col2.button("Predict"):
+if col1.button("Predict"):
     if input_text:
         prediction, _, _ = process_text(input_text)
         st.write("Prediksi Tingkat Abusiveness:", prediction)
 
 # Tombol "Detect"
-if col3.button("Detect"):
+if col1.button("Detect"):
     if input_text:
         _, detection, _ = process_text(input_text)
         st.write("Deteksi Kata Kasar:", detection)
 
 # Tombol "Filter"
-if col4.button("Filter"):
+if col1.button("Filter"):
     if input_text:
         _, _, filtered_text = process_text(input_text)
         st.write("Teks Setelah Difilter:", filtered_text)
