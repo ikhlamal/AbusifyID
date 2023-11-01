@@ -10,10 +10,11 @@ def process_text(text):
     return prediction, detection, filtered_text
 
 # Aplikasi Streamlit
-st.title("Abusify Streamlit App")
+st.title("AbusifyID")
+st.write("Abusiveness Verification in Bahasa Indonesia.")
 
 # Input teks
-input_text = st.text_area("Masukkan teks:")
+input_text = st.text_area("", placeholder="Input Text Here")
 
 # Membuat tiga kolom dengan CSS untuk mengatur tampilan tombol-tombol
 col1, col2, col3, col4 = st.columns(4)
@@ -38,9 +39,9 @@ col4.markdown(
 if col1.button("Submit"):
     if input_text:
         prediction, detection, filtered_text = process_text(input_text)
-        st.write("Prediksi Tingkat Abusiveness:", prediction)
-        st.write("Deteksi Kata Kasar:", detection)
-        st.write("Teks Setelah Difilter:", filtered_text)
+        st.write("Abusiveness Level:", st.info(prediction))
+        st.write("Abusive Words Detected:", st.info(detection))
+        st.write("Abusive Words Filtered:", st.info(filtered_text))
 
 # Tombol "Predict"
 if col2.button("Predict"):
